@@ -1,10 +1,8 @@
 const { DynamoDBDocumentClient, UpdateCommand } = require("@aws-sdk/lib-dynamodb");
 const dynamoDBClient  = require("./ClientDynamoDB.js");
 
-
 async function updateItem(NameTable, ID, message) {
     const docClient = DynamoDBDocumentClient.from(dynamoDBClient);
-    
     const command = new UpdateCommand({
         ExpressionAttributeNames: {
             "#RQ": "req",

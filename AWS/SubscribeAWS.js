@@ -56,7 +56,6 @@ async function subscribeToTopics(connection, topics) {
 		try {
 			const json = decoder.decode(payload);
 			console.log(`Mensaje recibido en el tema "${topic}":`);
-			console.log(json);
 
 			const message = JSON.parse(json);
 			await handleMessages(topic, message);

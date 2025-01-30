@@ -34,16 +34,15 @@ function add_topic_message_arguments(yargs) {
  * Build a direct mqtt connection using mtls
  */
 function buildMqttConnection(argv) {
-    
-    let config_builder = iot.AwsIotMqttConnectionConfigBuilder.new_mtls_builder_from_path(argv.cert, argv.key);
+    let config_builder = iot.AwsIotMqttConnectionConfigBuilder.new_mtls_builder_from_path(argv.CERT, argv.KEY);
 
-    if (argv.ca_file != null) {
-        config_builder.with_certificate_authority_from_path(undefined, argv.ca_file);
+    if (argv.CA_FILE != null) {
+        config_builder.with_certificate_authority_from_path(undefined, argv.CA_FILE);
     }
 
     config_builder.with_clean_session(false);
-    config_builder.with_client_id(argv.client_id || "test-" + Math.floor(Math.random() * 100000000));
-    config_builder.with_endpoint(argv.endpoint);
+    config_builder.with_client_id(argv.CLIENT_ID || "test-" + Math.floor(Math.random() * 100000000));
+    config_builder.with_endpoint(argv.ENDPOINT);
     config_builder.with_keep_alive_seconds(6);
 
     const config = config_builder.build();
