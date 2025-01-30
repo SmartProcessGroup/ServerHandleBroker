@@ -6,6 +6,7 @@ const {subscribeToTopics} = require('./AWS/SubscribeAWS.js');
 const {connectAWS} = require('./AWS/ConnectAWS.js');
 const {getTopicsAWS} = require('./AWS/DynamoDb/GetTopicsAWS.js');
 const dynamoDBClient = require('./AWS/DynamoDb/ClientDynamoDB.js');
+const {setFlagUploadLocation} = require('./AWS/DynamoDb/AddItems.js');
 
 var ConnectionAWS;
 var Topics = [];

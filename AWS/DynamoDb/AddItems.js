@@ -10,9 +10,9 @@ async function addItem(NameTable, ID, message) {
     const params = {
         TableName: NameTable,
         Key: { ID },
-        UpdateExpression: "SET #values.#date = :data",
+        UpdateExpression: "SET #values.#date = :data, pos = :location",
         ExpressionAttributeNames: { "#values": "values", "#date": date},
-        ExpressionAttributeValues: { ":data": data }, 
+        ExpressionAttributeValues: { ":data": data, ":location": message.pos}, 
         ReturnValues: "ALL_NEW", 
     };
     
